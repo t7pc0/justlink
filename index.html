@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Raleway:wght@700&display=swap');
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1a1a1a, #4a4a4a);
+            flex-direction: column;
+            position: relative;
+            user-select: none; /* Запрещает выделение для всей страницы */
+        }
+        img {
+            width: 300px;
+            height: auto;
+            border-radius: 10px;
+            cursor: pointer;
+            user-select: none; /* Запрещает выделение */
+            -webkit-user-drag: none; /* Запрещает перетаскивание в Safari */
+            -webkit-user-select: none; /* Запрещает выделение в Chrome/Safari */
+            -moz-user-select: none; /* Запрещает выделение в Firefox */
+            -ms-user-select: none; /* Запрещает выделение в Edge */
+        }
+        .footer-text {
+            position: absolute;
+            top: 10%;
+            font-family: 'Raleway', sans-serif;
+            font-size: 24px;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+        }
+    </style>
+</head>
+<body>
+    <div class="footer-text">TG:SOUNDQUELA</div>
+    <img src="fref.png" alt="" id="playImage">
+    <audio id="audio" loop>
+        <source src="siiat.mp3" type="audio/mpeg">
+    </audio>
+    <script>
+        const audio = document.getElementById('audio');
+        const playImage = document.getElementById('playImage');
+        let isPlaying = false;
+
+        playImage.addEventListener('click', () => {
+            if (isPlaying) {
+                audio.pause();
+            } else {
+                audio.play();
+            }
+            isPlaying = !isPlaying;
+        });
+
+        document.documentElement.requestFullscreen().catch(err => {
+            console.log("Не удалось открыть в полноэкранном режиме: ", err);
+        });
+    </script>
+</body>
+</html>
